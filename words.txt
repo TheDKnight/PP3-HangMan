@@ -1,0 +1,7 @@
+python
+jumble
+easy
+difficult
+answer
+tracer
+muffin
