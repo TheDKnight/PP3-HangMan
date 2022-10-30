@@ -4,6 +4,8 @@
 import random 
 
 f = open('words.txt', 'r')
-lines = random.choice(f.readlines() )
+lines = random.choice(f.readlines())
+lines = lines.strip()
 f.close()
 print(lines)
+print(len(lines))
