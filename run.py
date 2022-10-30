@@ -3,9 +3,10 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import random 
 
-f = open('words.txt', 'r')
-lines = random.choice(f.readlines())
-lines = lines.strip()
-f.close()
-print(lines)
-print(len(lines))
+def randomWord():
+    f = open('words.txt', 'r')
+    word = random.choice(f.readlines()).strip()
+    f.close()
+    print(len(word))
+    return(word)
+print(randomWord())
