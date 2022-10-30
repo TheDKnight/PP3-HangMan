@@ -1,7 +1,14 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
 import random 
+
+
+def welcome() :
+    name = input("Welcome to PP3 Hangman Game Please Enter Your Name Below :\n Name: ")
+    while name.isalpha() == False :
+        print("Please only enter alphabetic letters for your name") 
+        name = input("Please enter your name again: ")
+    else: 
+        print(f"Welcome {name}, You will be playing against the computer today from a randomly selected word list.")
+
 
 def randomWord():
     f = open('words.txt', 'r')
@@ -9,4 +16,8 @@ def randomWord():
     f.close()
     print(len(word))
     return(word)
-print(randomWord())
+
+
+
+#print(randomWord())
+welcome()
