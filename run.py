@@ -37,18 +37,24 @@ def main():
     print(gameWord)
     print(f"The word is {lenGameWord} Characters Long")
     guessed_letters = []
-    print(f"You have guessed {guessed_letters} Letters Allready")
+    
     blanks = len(gameWord) * '_'
     print(blanks)
     guess = input("Enter A Letter \n".lower()) 
-    
-    if len(guess) != 1 or not guess.isalpha():
-        print("Please enter a correct value")
-    elif guess in guessed_letters:
-        print("Letter has been guessed allready")
-    elif guess in gameWord :
-        print("in game world")
-
+    print(f"You have guessed {guessed_letters} Letters Allready")
+    lives = 5
+    while lives > 0:
+        if len(guess) != 1 or not guess.isalpha():
+            print("Please enter a correct value")
+            guess = input("Enter A Letter \n".lower()) 
+        elif guess in guessed_letters:
+            print("Letter has been guessed allready")
+        elif guess in gameWord :
+            print("in game world")
+            break
+        
+    else:
+        print("you lose")
 main()
 #print(randomWord())
 #print(len(randomWord()))
