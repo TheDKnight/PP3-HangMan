@@ -31,13 +31,23 @@ def randomWord():
 
 
 def main():
+    welcome()
     gameWord = randomWord()
     lenGameWord = len(gameWord) 
     print(gameWord)
     print(f"The word is {lenGameWord} Characters Long")
-    found_letters = []
+    guessed_letters = []
+    print(f"You have guessed {guessed_letters} Letters Allready")
     blanks = len(gameWord) * '_'
     print(blanks)
+    guess = input("Enter A Letter \n".lower()) 
+    
+    if len(guess) != 1 or not guess.isalpha():
+        print("Please enter a correct value")
+    elif guess in guessed_letters:
+        print("Letter has been guessed allready")
+    elif guess in gameWord :
+        print("in game world")
 
 main()
 #print(randomWord())
