@@ -13,20 +13,33 @@ def welcome() :
         name = input("Please enter your name again: ")
     else: 
         print(f"Welcome {name}, You will be playing against the computer today from a randomly selected word list.")
+    
+    return(name) 
 
 
 def randomWord():
     """
     The randomWord functions opens the words.txt file and takes a random word from the list using the import random function.
-    It also strips the word of any whtie space.
+    It also strips the word of any whtie space and returns the word.
     """
     f = open('words.txt', 'r')
     word = random.choice(f.readlines()).strip()
     f.close()
-    print(len(word))
+    #print(len(word))
+    
     return(word)
 
 
+def main():
+    gameWord = randomWord()
+    lenGameWord = len(gameWord) 
+    print(gameWord)
+    print(f"The word is {lenGameWord} Characters Long")
+    found_letters = []
+    blanks = len(gameWord) * '_'
+    print(blanks)
 
+main()
 #print(randomWord())
-welcome()
+#print(len(randomWord()))
+#welcome()
