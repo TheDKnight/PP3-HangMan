@@ -31,7 +31,7 @@ def randomWord():
 
 
 def main():
-    welcome()
+   # welcome()
     gameWord = randomWord()
     lenGameWord = len(gameWord) 
     print(gameWord)
@@ -39,22 +39,38 @@ def main():
     guessed_letters = []
     
     blanks = len(gameWord) * '_'
-    print(blanks)
-    guess = input("Enter A Letter \n".lower()) 
-    print(f"You have guessed {guessed_letters} Letters Allready")
+    #print(blanks)
+    blanks = list(blanks)
+    
+    
     lives = 5
     while lives > 0:
+        guess = input("Enter A Letter \n".lower()) 
         if len(guess) != 1 or not guess.isalpha():
             print("Please enter a correct value")
-            guess = input("Enter A Letter \n".lower()) 
+           # guess = input("Enter A Letter \n".lower()) 
         elif guess in guessed_letters:
             print("Letter has been guessed allready")
-        elif guess in gameWord :
-            print("in game world")
-            break
+            #guess = input("Enter A Letter \n".lower()) 
+        elif guess not in gameWord :
+            lives -= 1
+            guessed_letters.append(guess)
+            print(f"{guess} Is not in the selcted word" )
+            print(f"You have {lives} lives left")   
+        elif guess in gameWord:
+           for i in gameWord:
+               for i, char in enumerate(gameWord):
+                   if char == guess:
+                      blanks[i] = guess
+           print(''.join(blanks))
+        print(f"Letters Guessed Allready {guessed_letters}")
+
+        if ''.join(blanks) == gameWord:
+            print(f'You won. The secret word was: {gameWord}.')
         
     else:
         print("you lose")
+        print(f'The secret word was: {gameWord}.')
 main()
 #print(randomWord())
 #print(len(randomWord()))
