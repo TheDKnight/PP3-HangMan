@@ -7,7 +7,7 @@ def welcome() :
     It will not progress unless the correct input is inputed.
     """
 
-    name = input("Welcome to PP3 Hangman Game Please Enter Your Name Below :\n Name: ")
+    name = input("Welcome to PP3 Hangman Game Please Enter Your Name Below:\nName: ")
     while name.isalpha() == False :
         print("Please only enter alphabetic letters for your name") 
         #name = input("Please enter your name again: ")
@@ -25,12 +25,14 @@ def randomWord():
     f = open('words.txt', 'r')
     word = random.choice(f.readlines()).strip()
     f.close()
-    #print(len(word))
-    
     return(word)
 
 def playAgain():
-    play = input("\nGame is finished, would you like to play another game?\n\npress y for another game or n to exit \n").lower()
+    """
+    The play again function allows the user to restart the game
+    or exit the program after they win or lose.
+    """
+    play = input("\nGame is finished, would you like to play another game?\n\nPress y for another game or n to exit").lower()
         
     if len(play) != 1 or not play.isalpha():
         print("Please enter either a y or ")
@@ -39,27 +41,40 @@ def playAgain():
     elif play == "n": 
         exit()
     return(playAgain())
+
 def main():
-   # welcome()
+    """
+    The main function is where the main game is run.
+    It first takes the welcome value/username and then takes a random word from the random word function
+    It gets the lengthh of the random word and outputs it for the user.
+    It also creates a blank list for the guessed words and a blank line for the random word
+    The line matchs how many words the randomword has
+    """
+
+    welcome()
     gameWord = randomWord()
     lenGameWord = len(gameWord) 
-    #print(gameWord)
-    print(f"\nThe word is {lenGameWord} Characters Long")
+    print(f"\nThe word is {lenGameWord} Characters Long\n")
     guessed_letters = []
-    
     blanks = len(gameWord) * '_'
     blanks = list(blanks)
     
-    
+    """
+    We assign 6 lives to the user and from the input value it checks that the user has only entered 1 characters.
+    It also only allows the user to input the alphabetic characters.
+    It stores the values of the users guess in a list and alerts the user if they have entered it allready, 
+    a list of entered guess is at the bottom of the screen.
+    If the guess is in the word the guess is added to the guessed list and the blank list is updated with the guess in the correct place.
+    It then prints a new join to the list.
+    It alerts the user if the guess is in the word or not
+    """
     lives = 5
     while lives > 0:
         guess = input("Enter A Letter \n").lower()
         if len(guess) != 1 or not guess.isalpha():
-            print("Please enter a correct value")
-           # guess = input("Enter A Letter \n".lower()) 
+            print("\nPlease enter a correct value")
         elif guess in guessed_letters:
-            print("Letter has been guessed allready")
-            #guess = input("Enter A Letter \n".lower()) 
+            print("\nLetter has been guessed allready")
         elif guess not in gameWord :
             lives -= 1
             guessed_letters.append(guess)
@@ -71,21 +86,23 @@ def main():
                    if char == guess:
                       blanks[i] = guess
            guessed_letters.append(guess)
-           print(F"{guess} is in the word")
+           print(F"{guess} is in the word\n")
            print(''.join(blanks))
            
-        print(f"Letters Guessed Allready {guessed_letters}")
+        print(f"\nLetters Guessed Allready {guessed_letters}")
 
+        """
+        If the blanks list is the same as the random word then the user has won
+        User is asked do they want to play again.
+        Otherwise user loses
+        """
         if ''.join(blanks) == gameWord:
-            print(f'You won. The secret word was: {gameWord}.')
+            print(f'\nYou won. The secret word was: {gameWord}.')
             playAgain()
         
     else:
         print("")
-        print(f'you lose \n The secret word was: {gameWord}.')
+        print(f'\nYou Lose. The secret word was: {gameWord}.')
         playAgain()
 
 main()
-#print(randomWord())
-#print(len(randomWord()))
-#welcome()
