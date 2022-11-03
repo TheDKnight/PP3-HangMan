@@ -1,20 +1,22 @@
-import random 
+import random
 
 
-def welcome() :
+def welcome():
     """
     Welcome functions Takes the users name and checks it again the is alphabetic built in function of python
     It will not progress unless the correct input is inputed.
     """
 
-    name = input("Welcome to PP3 Hangman Game Please Enter Your Name Below:\nName: ")
-    while name.isalpha() == False :
-        print("Please only enter alphabetic letters for your name") 
+    name = input(
+        "Welcome to PP3 Hangman Game Please Enter Your Name Below:\nName: ")
+    while name.isalpha() == False:
+        print("Please only enter alphabetic letters for your name")
         #name = input("Please enter your name again: ")
-    else: 
-        print(f"Welcome {name}, You will be playing against the computer today from a randomly selected word list.")
-    
-    return(name) 
+    else:
+        print(
+            f"Welcome {name}, You will be playing against the computer today from a randomly selected word list.")
+
+    return (name)
 
 
 def randomWord():
@@ -25,22 +27,25 @@ def randomWord():
     f = open('words.txt', 'r')
     word = random.choice(f.readlines()).strip()
     f.close()
-    return(word)
+    return (word)
+
 
 def playAgain():
     """
     The play again function allows the user to restart the game
     or exit the program after they win or lose.
     """
-    play = input("\nGame is finished, would you like to play another game?\n\nPress y for another game or n to exit").lower()
-        
+    play = input(
+        "\nGame is finished, would you like to play another game?\n\nPress y for another game or n to exit").lower()
+
     if len(play) != 1 or not play.isalpha():
         print("Please enter either a y or ")
-    elif play == "y" :
+    elif play == "y":
         main()
-    elif play == "n": 
+    elif play == "n":
         exit()
-    return(playAgain())
+    return (playAgain())
+
 
 def main():
     """
@@ -53,12 +58,12 @@ def main():
 
     welcome()
     gameWord = randomWord()
-    lenGameWord = len(gameWord) 
+    lenGameWord = len(gameWord)
     print(f"\nThe word is {lenGameWord} Characters Long\n")
     guessed_letters = []
     blanks = len(gameWord) * '_'
     blanks = list(blanks)
-    
+
     """
     We assign 6 lives to the user and from the input value it checks that the user has only entered 1 characters.
     It also only allows the user to input the alphabetic characters.
@@ -75,20 +80,20 @@ def main():
             print("\nPlease only enter a single alphabetic letter for your guess")
         elif guess in guessed_letters:
             print("\nLetter has been guessed allready")
-        elif guess not in gameWord :
+        elif guess not in gameWord:
             lives -= 1
             guessed_letters.append(guess)
-            print(f"{guess} Is not in the selcted word You have {lives} lives left")  
-            print(''.join(blanks)) 
+            print(f"{guess} Is not in the selcted word You have {lives} lives left")
+            print(''.join(blanks))
         elif guess in gameWord:
-           for i in gameWord:
-               for i, char in enumerate(gameWord):
-                   if char == guess:
-                      blanks[i] = guess
-           guessed_letters.append(guess)
-           print(F"{guess} is in the word\n")
-           print(''.join(blanks))
-           
+            for i in gameWord:
+                for i, char in enumerate(gameWord):
+                    if char == guess:
+                        blanks[i] = guess
+            guessed_letters.append(guess)
+            print(F"{guess} is in the word\n")
+            print(''.join(blanks))
+
         print(f"\nLetters Guessed Allready {guessed_letters}")
 
         """
@@ -99,10 +104,11 @@ def main():
         if ''.join(blanks) == gameWord:
             print(f'\nYou won. The secret word was: {gameWord}.')
             playAgain()
-        
+
     else:
         print("")
         print(f'\nYou Lose. The secret word was: {gameWord}.')
         playAgain()
+
 
 main()

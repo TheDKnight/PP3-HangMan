@@ -1,14 +1,9 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome TheDKnight,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
-## Reminders
+# Hangman Game
 
 * Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+* 
+
+<img src = "/assets/images/readme.images/head.jpg" alt="website on different devices">
 
 ## Creating the Heroku app
 
