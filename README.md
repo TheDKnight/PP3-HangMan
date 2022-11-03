@@ -3,7 +3,7 @@
 * Your code must be placed in the `run.py` file
 * 
 
-<img src = "/assets/images/readme.images/head.jpg" alt="website on different devices">
+<img src = "assets/images/readme.images/head.jpg" alt="website on different devices">
 
 ## Creating the Heroku app
 
