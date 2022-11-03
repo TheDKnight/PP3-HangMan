@@ -11,7 +11,7 @@ def welcome():
         "Welcome to PP3 Hangman Game Please Enter Your Name Below:\nName: ")
     while name.isalpha() == False:
         print("Please only enter alphabetic letters for your name")
-        #name = input("Please enter your name again: ")
+        name = input("Please enter your name again: ")
     else:
         print(
             f"Welcome {name}, You will be playing against the computer today from a randomly selected word list.")
