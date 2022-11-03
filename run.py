@@ -72,7 +72,7 @@ def main():
     while lives > 0:
         guess = input("Enter A Letter \n").lower()
         if len(guess) != 1 or not guess.isalpha():
-            print("\nPlease enter a correct value")
+            print("\nPlease only enter a single alphabetic letter for your guess")
         elif guess in guessed_letters:
             print("\nLetter has been guessed allready")
         elif guess not in gameWord :
