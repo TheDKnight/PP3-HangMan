@@ -3,8 +3,9 @@
 * Your code must be placed in the `run.py` file
 * 
 
-<img src = "assets/images/readme.images/head.jpg" alt="website on different devices">
+<img src = "![Alt text](vscode-remote://thedknight-pp3hangman-t224rv81o2u.ws-eu73.gitpod.io/workspace/PP3-HangMan/assets/readme.images/head.jpg)">
 
+<img src = "/assets/readme.images/head.jpg">
 ## Creating the Heroku app
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
