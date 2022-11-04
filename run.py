@@ -8,7 +8,7 @@ def welcome():
     """
 
     name = input(
-        "Welcome to PP3 Hangman Game Please Enter Your Name Below:\nName: ")
+        "Welcome to PP3 Hangman Game \nPlease Enter Your Name Below:\nName: ")
     while name.isalpha() == False:
         print("Please only enter alphabetic letters for your name")
         name = input("Please enter your name again: ")
@@ -56,7 +56,7 @@ def main():
     The line matchs how many words the randomword has
     """
 
-    welcome()
+    user = welcome()
     gameWord = randomWord()
     lenGameWord = len(gameWord)
     print(f"\nThe word is {lenGameWord} Characters Long\n")
@@ -102,12 +102,12 @@ def main():
         Otherwise user loses
         """
         if ''.join(blanks) == gameWord:
-            print(f'\nYou won. The secret word was: {gameWord}.')
+            print(f'\nYou won {user}. The secret word was: {gameWord}.')
             playAgain()
 
     else:
         print("")
-        print(f'\nYou Lose. The secret word was: {gameWord}.')
+        print(f'\nYou Lost {user}. The secret word was: {gameWord}.')
         playAgain()
 
 
